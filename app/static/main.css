@@ -9,7 +9,7 @@ body {
   }
   form {
     display: flex;
-    flex-direction: column;
+    /* flex-direction:; */
     align-items: center;
     margin: 20px 0;
   }

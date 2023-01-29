@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+  <body>
+    <h1>Store</h1>
+    <ul>
+      {% for product in products %}
+        <li>
+          <a href="{{ url_for('singleproduct', product_id=product['id']) }}">{{ product['name'] }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+
+
+{% endblock %}

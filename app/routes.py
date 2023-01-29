@@ -9,23 +9,21 @@ from app import app
 app.secret_key = 'random_secret_key'
 
 products = [
-    {'id': 1, 'name': 'Product 1', 'price':9.99},
-    {'id': 2, 'name': 'Product 2', 'price':9.99},
-    {'id': 3, 'name': 'Product 3', 'price':9.99}
+    {'id': 1, 'name': 'iPhone 14', 'price':999.99},
+    {'id': 2, 'name': "Keyboard", 'price':69.99},
+    {'id': 3, 'name': 'Headphones', 'price':79.99},
+    {'id': 4, 'name': 'Microphone', 'price':49.99},
+    {'id': 5, 'name': 'iPod', 'price':109.99},
+    {'id': 6, 'name': 'TV', 'price':9999.99}
 ]
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    if request.method == 'POST':
-        name = request.form['name']
-        session['name'] = name
-        return redirect(url_for('products'))
-    return render_template('index.html', product=products)
+    return render_template('index.html')
 
-@app.route('/allproducts')
-def Show_all_products():
-    name = session.get('name')
-    return render_template('products.html', name=name)
+@app.route('/products')
+def showproducts():
+    return render_template('products.html', products=products)
 
 @app.route('/product/<int:product_id>')
 def singleproduct(product_id):

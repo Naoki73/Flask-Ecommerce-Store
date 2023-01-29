@@ -6,11 +6,6 @@
   </head>
   <body>
     <h1>Welcome to our E-commerce Application</h1>
-    <form action="/signup" method="post">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name">
-      <input type="submit" value="Sign up">
-    </form>
-  </body>
+    <a href="{{ url_for('showproducts') }}">Click here to look at our store!</a>
 
 {% endblock %}
