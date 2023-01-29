@@ -9,12 +9,12 @@ from app import app
 app.secret_key = 'random_secret_key'
 
 products = [
-    {'id': 1, 'name': 'iPhone 14', 'price':999.99},
-    {'id': 2, 'name': "Keyboard", 'price':69.99},
-    {'id': 3, 'name': 'Headphones', 'price':79.99},
-    {'id': 4, 'name': 'Microphone', 'price':49.99},
-    {'id': 5, 'name': 'iPod', 'price':109.99},
-    {'id': 6, 'name': 'TV', 'price':9999.99}
+    {'id': 1, 'name': 'iPhone 14', 'price':999.99, 'img': '/static/images/iphone14.jpg'},
+    {'id': 2, 'name': "Keyboard", 'price':69.99, 'img': '/static/images/keyboard.jpg' },
+    {'id': 3, 'name': 'Headphones', 'price':79.99, 'img': '/static/images/headphones.jpg'},
+    {'id': 4, 'name': 'Microphone', 'price':49.99, 'img': '/static/images/microphone.jpg'},
+    {'id': 5, 'name': 'iPod', 'price':109.99, 'img': '/static/images/ipod.jpg'},
+    {'id': 6, 'name': 'TV', 'price':9999.99, 'img': '/static/images/tv.jpg'}
 ]
 
 @app.route('/')
@@ -43,6 +43,10 @@ def add_to_cart():
     session['cart'].append(product)
 
     return "Product added to cart"
+
+@app.route('/signup')
+def SignUp():
+    return render_template('signup.html')
 
 
 @app.route('/cart')
