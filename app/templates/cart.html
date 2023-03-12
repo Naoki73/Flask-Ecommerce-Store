@@ -1,42 +1,47 @@
 {% extends 'base.html' %}
 {% block content %}
-    <head>
-        <title>Cart</title>
-    </head>
-    <body>
-        <h1>Your Cart</h1>
-        {% if cart %}
-        <table>
-            <thead>
-                <tr>
-                    <th> Product</th>
-                    <th>Price</th>
-                    <th>Remove</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in cart %}
-                <tr>
-                    <td>{{ item.name }}</td>
-                    <td>${{ item.price }}</td>
-                    <td>
-                        <form action="{{ url_for('remove_item', product_id=item.id) }}" method ="POST">
-                            <input type="submit" value="Remove">
-                        </form>
-                    </td>
-                </tr>
-                {{ % endfor %}}
-            </tbody>
-        </table>
-        <p>Total: ${{ total_price }}</p>
-        <form action="{{ url_for('remove_all_items') }}" method="POST">
-            <input type="submit" value="Remove ALL Items">
-        </form>
-        {% else %}
-        <p>Your cart is empty</p>
-        {% endif %}
-    </body>
 
+<head>
+    <title>Cart</title>
+</head>
 
+<body>
+    <h1>Your Cart</h1>
+    {% if cart %}
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item_id, item in cart.items() %}
+            <tr>
+                <td>{{ item['name'] }}</td>
+                <td>${{ item['price'] }}</td>
+                <td>{{ item['quantity'] }}</td>
+                <td>
+                    <form action="{{ url_for('remove_from_cart', product_id=item_id) }}" method="POST">
+                        <input type="submit" value="Remove">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>Total: ${{ total_price }}</p>
+    <form action="{{ url_for('remove_all_items') }}" method="POST">
+        <input type="submit" value="Remove ALL Items">
+    </form>
+    <form action="{{ url_for('purchase') }}" method="POST">
+        <input type="submit" value="Purchase">
+    </form>
+    {% else %}
+    <p>Your cart is empty</p>
+    {% endif %}
+</body>
 
 {% endblock %}
