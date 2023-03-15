@@ -105,12 +105,7 @@ def login():
     return render_template('login.html')
 
 
-# @app.route('/clear_cart', methods=['POST'])
-# def clear_cart():
-#     # remove all products from the cart
-#     # ...
 
-#     return redirect(url_for('cart'))
 
 
 @app.route('/remove_all_items', methods=['POST'])
