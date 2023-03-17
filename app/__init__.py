@@ -12,4 +12,3 @@ app.register_blueprint(auth)
 
 from . import routes
 
-from . import services
