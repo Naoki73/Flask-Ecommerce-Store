@@ -1,10 +1,10 @@
-# [Flask E-commerce Store](flask-ecommerce.glitch.me) 
+# [Flask E-commerce Store](http://flask-ecommerce.glitch.me/) 
 
 ## About
 
 This is a mock-up of an E-commerce store, built in Flask. You are able to add 6 different items to your cart, freely remove them from your cart, get a total price and check-out!
 
-[Click here to use it!](flask-ecommerce.glitch.me)
+[Click here to use it!](http://flask-ecommerce.glitch.me/)
 
 
 <br>
